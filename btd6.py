@@ -103,10 +103,10 @@ def start_game():
     pyautogui.click()
 
 def place_all():
-    place_sniper_monkey()
+    place_monkey("sniper")
     scroll_to_end()
-    place_village()
-    place_alchemist()
+    place_monkey("village")
+    place_monkey("alchemist")
     upgrade_monkey("village", 2,0,2)
     upgrade_monkey("alchemist", 4, 2, 0)
     upgrade_monkey("sniper", 0, 2, 4)
