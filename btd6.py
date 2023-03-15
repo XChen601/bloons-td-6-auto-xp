@@ -70,12 +70,10 @@ def upgradePath3(times):
         pyautogui.click()
         time.sleep(.1)
 
-
-# place sniper monkey
-def place_sniper_monkey():
-    pyautogui.moveTo(3750, 633, .2)
+def place_monkey(monkey):
+    pyautogui.moveTo(monkey_upgrade_locations[monkey]["x"], monkey_upgrade_locations[monkey]["y"], SPEED)
     pyautogui.click()
-    pyautogui.moveTo(3526, 499, .2)
+    pyautogui.moveTo(monkey_placements[monkey]["x"], monkey_placements[monkey]["y"], SPEED)
     pyautogui.click()
 
 def scroll_to_end():
@@ -89,19 +87,6 @@ def scroll_to_top():
 
     for i in range(11):
         pyautogui.scroll(1)
-# place village
-def place_village():
-    pyautogui.moveTo(3635,893,.2)
-    pyautogui.click()
-    pyautogui.moveTo(3493,579,.2)
-    pyautogui.click()
-
-# place alchemist
-def place_alchemist():
-    pyautogui.moveTo(3744,629,.2)
-    pyautogui.click()
-    pyautogui.moveTo(3510,678,.2)
-    pyautogui.click()
 
 def upgrade_monkey(monkey, path1, path2, path3):
     pyautogui.moveTo(monkey_placements[monkey]["x"], monkey_placements[monkey]["y"], SPEED)
