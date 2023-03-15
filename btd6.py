@@ -45,30 +45,26 @@ monkey_placements = {
 startX, startY = 3748,1022
 
 # upgrade locations
-path1x = 2258
-path1y = 495
-path2x = 2259
-path2y = 637
-path3x = 2252
-path3y = 792
+upgrade_locations = {
+    1: {
+        "x": 2258,
+        "y": 495
+    },
+    2: {
+        "x": 2259,
+        "y": 637
+    },
+    3: {
+        "x": 2252,
+        "y": 792
+    },
+}
 
-def upgradePath1(times):
-    pyautogui.moveTo(path1x, path1y, .2)
-    for i in range(times):
+def upgrade_path(path_number, amount):
+    pyautogui.moveTo(upgrade_locations[path_number]['x'], upgrade_locations[path_number]['y'], .2)
+    for i in range(amount):
         pyautogui.click()
-        time.sleep(.1)
-
-def upgradePath2(times):
-    pyautogui.moveTo(path2x, path2y, .2)
-    for i in range(times):
-        pyautogui.click()
-        time.sleep(.1)
-
-def upgradePath3(times):
-    pyautogui.moveTo(path3x, path3y, .2)
-    for i in range(times):
-        pyautogui.click()
-        time.sleep(.1)
+        time.sleep(.05)
 
 def place_monkey(monkey):
     pyautogui.moveTo(monkey_upgrade_locations[monkey]["x"], monkey_upgrade_locations[monkey]["y"], SPEED)
@@ -91,9 +87,9 @@ def scroll_to_top():
 def upgrade_monkey(monkey, path1, path2, path3):
     pyautogui.moveTo(monkey_placements[monkey]["x"], monkey_placements[monkey]["y"], SPEED)
     pyautogui.click()
-    upgradePath1(path1)
-    upgradePath2(path2)
-    upgradePath3(path3)
+    upgrade_path(1, path1)
+    upgrade_path(2, path2)
+    upgrade_path(3, path3)
 
 # start game
 def start_game():
@@ -152,7 +148,7 @@ def main():
                 time.sleep(.5)
                 pyautogui.click()
 
-        print("VICTORY!")
+        print("VICTORY!", end=" ")
         reset()
 
 main()
